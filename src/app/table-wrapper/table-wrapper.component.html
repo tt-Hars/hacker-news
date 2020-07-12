@@ -1,0 +1,15 @@
+<section class="table-data">
+    <div class="d-flex news-detail-row table-data-header">
+        <div class="d-flex news-detail-row--comments-count"><span class="">Comments</span></div>
+        <div class="d-flex news-detail-row--votes"><span>count</span></div>
+        <div class="d-flex news-detail-row--upvote"><span>UpVote</span></div>
+        <div class="d-flex news-detail-row--details"><span>News Details</span></div>
+    </div>
+    <ng-container *ngFor="let news of newsList">
+        <div class="row-data">
+            <app-row [rowData] = 'news'></app-row>
+        </div>
+    </ng-container>
+    <app-paginator [noOfRecords] = 'noOfRecords' (updatedPageNo) = 'updateData($event)'></app-paginator>
+</section>
+<app-timeline-chart *ngIf = 'newsList.length > 0' [newsList] = 'newsList'></app-timeline-chart>

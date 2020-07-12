@@ -1,0 +1,153 @@
+@import "variables.scss";
+
+.m {
+  &t {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        margin-top: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &r {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        margin-right: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &b {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        margin-bottom: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &l {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        margin-left: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &x {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        margin-left: $base-spacing * $i * 2;
+        margin-right: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &y {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        margin-top: $base-spacing * $i * 2;
+        margin-bottom: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &a {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        margin: $base-spacing * $i * 2;
+      }
+    }
+  }
+}
+.p {
+  &t {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        padding-top: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &r {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        padding-right: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &b {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        padding-bottom: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &l {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        padding-left: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &x {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        padding-left: $base-spacing * $i * 2;
+        padding-right: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &y {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        padding-top: $base-spacing * $i * 2;
+        padding-bottom: $base-spacing * $i * 2;
+      }
+    }
+  }
+  &a {
+    @for $i from 0 through 6 {
+      &-#{$i} {
+        padding: $base-spacing * $i * 2;
+      }
+    }
+  }
+}
+
+.fill {
+  &-width {
+    width: 100%;
+  }
+  &-height {
+    height: 100%;
+  }
+}
+
+.d {
+  &-#{$inline} {
+    display: inline;
+    &-#{$block} {
+      display: inline-block;
+    }
+    &-#{$flex} {
+      display: inline-flex;
+    }
+  }
+  &-#{$block} {
+    display: block;
+  }
+  &-#{$flex} {
+    display: flex;
+  }
+  &-#{$table} {
+    display: table;
+    &-#{$cell} {
+      display: table-cell;
+    }
+  }
+}
+
+.pos {
+  &-#{$absolute} {
+    position: absolute;
+  }
+  &-#{$relative} {
+    position: relative;
+  }
+  &-#{$fixed} {
+    position: fixed;
+  }
+}
