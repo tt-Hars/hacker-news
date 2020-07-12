@@ -2,13 +2,13 @@
     <div class="d-flex news-detail-row--comments-count"><span>{{rowData.num_comments}} </span></div>
     <div class="d-flex news-detail-row--votes"><span>{{rowData.points}}</span></div> 
     <div class="d-flex news-detail-row--upvote">
-        <button>^</button>
+        <button (click)="performUpdate('upvote')">^</button>
     </div>
     <div class="d-flex news-detail-row--details">
         <span>{{rowData.title}} </span>
         <span>({{modifiedURL}}) </span>
         <span> by </span>
         <span>{{rowData.author}} </span>
-        <button>[hide]</button>
+        <button (click)="performUpdate('hide')">[hide]</button>
     </div>
 </div>

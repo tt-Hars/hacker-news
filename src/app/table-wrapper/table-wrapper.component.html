@@ -7,9 +7,9 @@
     </div>
     <ng-container *ngFor="let news of newsList">
         <div class="row-data">
-            <app-row [rowData] = 'news'></app-row>
+            <app-row (emittedaction) = 'updateNews($event)' [rowData] = 'news'></app-row>
         </div>
     </ng-container>
     <app-paginator [noOfRecords] = 'noOfRecords' (updatedPageNo) = 'updateData($event)'></app-paginator>
 </section>
-<app-timeline-chart *ngIf = 'newsList.length > 0' [newsList] = 'newsList'></app-timeline-chart>
+<app-timeline-chart #timelineChart *ngIf = 'newsList.length > 0' [newsList] = 'newsList'></app-timeline-chart>

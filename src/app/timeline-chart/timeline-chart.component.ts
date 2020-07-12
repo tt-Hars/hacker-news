@@ -19,13 +19,13 @@ export class TimelineChartComponent implements OnInit, OnChanges {
 
   }
   ngOnChanges(): void {
-    this.createChart();
+    this.createChart(this.newsList);
   }
-  createChart() {
+  createChart(newsList) {
     this.lineChart = [];
     this.graphCoordinates.x = [];
     this.graphCoordinates.y = [];
-    this.newsList.map((el) => {
+    newsList.map((el) => {
       this.graphCoordinates.x.push(el.objectID);
       this.graphCoordinates.y.push(el.points);
     });

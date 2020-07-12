@@ -8,7 +8,6 @@ import { PaginatorComponent } from './paginator/paginator.component';
 import { TableWrapperComponent } from './table-wrapper/table-wrapper.component';
 import { TimelineChartComponent } from './timeline-chart/timeline-chart.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
