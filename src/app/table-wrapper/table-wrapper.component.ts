@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { GetNewsService } from '../services/get-news.service';
 import { IrowData, IpageData } from '../interfaces/IrowData.interface';
 import { TimelineChartComponent } from '../timeline-chart/timeline-chart.component';
+import { Router } from 'express';
+import { Route, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-table-wrapper',
@@ -12,18 +14,30 @@ import { TimelineChartComponent } from '../timeline-chart/timeline-chart.compone
 export class TableWrapperComponent implements OnInit {
 
   newsList = Array<IrowData>();
-  noOfRecords = 0;
-  constructor(private getNewsService: GetNewsService) { }
+  pageNo = 0;
+  constructor(private getNewsService: GetNewsService, private route: ActivatedRoute) { }
   @ViewChild('timelineChart') chartComponent: TimelineChartComponent;
   ngOnInit(): void {
-    this.getNewsService.getNews(this.noOfRecords).subscribe( data => {
-        this.assignValues(data);
-      }
-    );
+    const url =  window.location.href;
+    this.pageNo = +url.substr(url.indexOf('=') + 1, url.length) || 0;
+    if (!localStorage.getItem('pageData')) {
+      this.getNewsService.getNews(this.pageNo).subscribe( data => {
+          this.assignValues(data);
+          localStorage.setItem('pageData', JSON.stringify(data.hits));
+          localStorage.setItem('pageNo', `${data.page}`);
+        }
+      );
+    }  else {
+      this.newsList = JSON.parse(localStorage.getItem('pageData'));
+      this.pageNo = +localStorage.getItem('pageNo');
+    }
   }
   updateData(updatedPageNum): void {
+    localStorage.clear();
     this.getNewsService.getNews(updatedPageNum).subscribe( data => {
       this.assignValues(data);
+      localStorage.setItem('pageData', JSON.stringify(data.hits));
+      localStorage.setItem('pageNo', `${data.page}`);
     });
   }
 
@@ -38,10 +52,11 @@ export class TableWrapperComponent implements OnInit {
       }
     }
     this.chartComponent.createChart(this.newsList);
+    localStorage.setItem('pageData', JSON.stringify(this.newsList));
   }
 
   assignValues(data: IpageData) {
     this.newsList = data.hits;
-    this.noOfRecords = data.hitsPerPage;
+    this.pageNo = data.page;
   }
 }

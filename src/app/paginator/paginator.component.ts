@@ -9,23 +9,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class PaginatorComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
-  @Input() noOfRecords;
+  @Input() pageNo = 0;
   @Output() updatedPageNo = new EventEmitter<number>();
 
   ngOnInit(): void {
+    console.log(this.pageNo);
   }
 
   changePage( type = 'next') {
-    type === 'next' ? this.noOfRecords ++ : this.noOfRecords --;
+    type === 'next' ? this.pageNo++ : this.pageNo--;
     this.router.navigate([], {
      relativeTo: this.route,
      queryParams: {
-       page: this.noOfRecords
+       page: this.pageNo
      },
-     queryParamsHandling: 'merge',
-     skipLocationChange: true
     });
-    this.updatedPageNo.emit(this.noOfRecords);
+    this.updatedPageNo.emit(this.pageNo);
   }
 
 }

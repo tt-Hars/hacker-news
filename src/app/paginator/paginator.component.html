@@ -1,1 +1,1 @@
-<button (click)="changePage('previous')">Previous</button> | <button (click)="changePage('next')">Next</button>
+<button [disabled]='pageNo === 0' (click)="changePage('previous')">Previous</button> | <button (click)="changePage('next')">Next</button>
