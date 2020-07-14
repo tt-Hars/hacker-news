@@ -7,7 +7,7 @@
     <div class="d-flex news-detail-row--details">
         <span class="fs-l fw-bold">{{rowData.title}}&nbsp;</span>
         <span>
-            <span>&nbsp;({{modifiedURL}})&nbsp;</span>
+            <a [href]="rowData.url" target="_blank" role="link"><span>&nbsp;({{modifiedURL}})&nbsp;</span></a>
             <span>&nbsp;by&nbsp;</span>
             <span class="fw-bold">&nbsp;{{rowData.author}}&nbsp;</span>
         </span>

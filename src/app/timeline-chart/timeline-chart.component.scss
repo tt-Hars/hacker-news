@@ -1,0 +1,28 @@
+.chart-container {
+    position: relative; 
+    width:70vw; 
+    margin:auto;
+    .y-axis-label{
+        position: absolute;
+        transform: rotate(-90deg) translateY(-50%);
+        top: 37%;
+        left: -20px;
+    }
+    .x-axis-label{
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px){
+    .chart-container {
+        width: 90vw;
+        .y-axis-label{
+            font-size: 0.75rem !important;
+            left: 0;
+            top: 30%;
+        }
+        .x-axis-label{
+            font-size: 0.75rem !important;
+        }
+    }   
+}
