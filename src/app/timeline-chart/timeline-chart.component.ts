@@ -36,7 +36,7 @@ export class TimelineChartComponent implements OnInit, OnChanges {
         datasets: [
           {
             data: this.graphCoordinates.y,
-            borderColor: '#3cb371',
+            borderColor: '#2f5496',
             fill: false
           }
         ]

@@ -5,10 +5,14 @@
         <button (click)="performUpdate('upvote')">^</button>
     </div>
     <div class="d-flex news-detail-row--details">
-        <span>{{rowData.title}} </span>
-        <span>({{modifiedURL}}) </span>
-        <span> by </span>
-        <span>{{rowData.author}} </span>
+        <span>{{rowData.title}}&nbsp;</span>
+        <span>&nbsp;({{modifiedURL}})&nbsp;</span>
+        <span>&nbsp;by&nbsp;</span>
+        <span>&nbsp;{{rowData.author}}&nbsp;</span>
+        <span *ngIf = 'newsCreatedAt.days > 365 && newsCreatedAt.months > 12'>&nbsp;{{ newsCreatedAt.years }}&nbsp;years&nbsp;</span>
+        <span *ngIf = 'newsCreatedAt.days > 365 && newsCreatedAt.months <= 12'>&nbsp;{{ newsCreatedAt.months }}&nbsp;months&nbsp;</span>
+        <span *ngIf = 'newsCreatedAt.days <= 365 && newsCreatedAt.months <= 1'>&nbsp;{{ newsCreatedAt.days }}&nbsp;days&nbsp;</span>
+        <span>&nbsp;ago&nbsp;</span>
         <button (click)="performUpdate('hide')">[hide]</button>
     </div>
 </div>
