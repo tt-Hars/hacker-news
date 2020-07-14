@@ -26,8 +26,17 @@ export class TableWrapperComponent implements OnInit {
         }
       );
     }  else {
-      this.newsList = JSON.parse(localStorage.getItem('pageData'));
-      this.pageNo = +localStorage.getItem('pageNo');
+      if (this.pageNo === +localStorage.getItem('pageNo')) {
+        this.newsList = JSON.parse(localStorage.getItem('pageData'));
+        this.pageNo = +localStorage.getItem('pageNo');
+      } else {
+        this.getNewsService.getNews(this.pageNo).subscribe( data => {
+          this.assignValues(data);
+          localStorage.setItem('pageData', JSON.stringify(data.hits));
+          localStorage.setItem('pageNo', `${data.page}`);
+        }
+      );
+      }
     }
   }
   updateData(updatedPageNum): void {

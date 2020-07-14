@@ -2,7 +2,7 @@
     <div *ngIf="rowData" class="d-flex news-detail-row--comments-count"><span class="fw-bold">{{rowData.num_comments}} </span></div>
     <div *ngIf="rowData" class="d-flex news-detail-row--votes"><span class="fw-bold">{{rowData.points}}</span></div> 
     <div class="d-flex news-detail-row--upvote">
-        <a title="upvote news" id="upvote-news" class="c-pointer" (click)="performUpdate('upvote')"><img style="opacity: 0.3;" src="assets/caret-up.png" alt=""></a>
+        <a role="button" tabindex="0" title="upvote news" id="upvote-news" class="c-pointer" (click)="performUpdate('upvote')"><img style="opacity: 0.3;" src="assets/caret-up.png" alt="upvote"></a>
     </div>
     <div class="d-flex news-detail-row--details">
         <span class="fs-l fw-bold">{{rowData.title}}&nbsp;</span>
@@ -12,11 +12,10 @@
             <span class="fw-bold">&nbsp;{{rowData.author}}&nbsp;</span>
         </span>
         <span>
-            <span *ngIf = 'rowData && newsCreatedAt.days > 365 && newsCreatedAt.months > 12'>&nbsp;{{ newsCreatedAt.years }}&nbsp;years&nbsp;</span>
-            <span *ngIf = 'rowData && newsCreatedAt.days > 365 && newsCreatedAt.months <= 12'>&nbsp;{{ newsCreatedAt.months }}&nbsp;months&nbsp;</span>
-            <span *ngIf = 'rowData && newsCreatedAt.days <= 365 && newsCreatedAt.months <= 1'>&nbsp;{{ newsCreatedAt.days }}&nbsp;days&nbsp;</span>
-            <span>&nbsp;ago&nbsp;</span>
-            <span>[&nbsp;<a id="hide-news" class="c-pointer fw-bold" (click)="performUpdate('hide')">hide</a>&nbsp;]</span>
+            <span *ngIf = 'rowData && newsCreatedAt.days > 365 && newsCreatedAt.months > 12'>&nbsp;{{ newsCreatedAt.years }}&nbsp;years ago&nbsp;</span>
+            <span *ngIf = 'rowData && newsCreatedAt.days > 365 && newsCreatedAt.months <= 12'>&nbsp;{{ newsCreatedAt.months }}&nbsp;months ago&nbsp;</span>
+            <span *ngIf = 'rowData && newsCreatedAt.days <= 365 && newsCreatedAt.months <= 1'>&nbsp;{{ newsCreatedAt.days }}&nbsp;days ago&nbsp;</span>
+            <span>[&nbsp;<a role="button" title="hide news" tabindex="0" id="hide-news" class="c-pointer fw-bold" (click)="performUpdate('hide')">hide</a>&nbsp;]</span>
         </span>
     </div>
 </div>
