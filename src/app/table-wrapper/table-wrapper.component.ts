@@ -2,8 +2,6 @@ import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { GetNewsService } from '../services/get-news.service';
 import { IrowData, IpageData } from '../interfaces/IrowData.interface';
 import { TimelineChartComponent } from '../timeline-chart/timeline-chart.component';
-import { Router } from 'express';
-import { Route, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-table-wrapper',
@@ -15,7 +13,7 @@ export class TableWrapperComponent implements OnInit {
 
   newsList = Array<IrowData>();
   pageNo = 0;
-  constructor(private getNewsService: GetNewsService, private route: ActivatedRoute) { }
+  constructor(private getNewsService: GetNewsService) { }
   @ViewChild('timelineChart') chartComponent: TimelineChartComponent;
   ngOnInit(): void {
     const url =  window.location.href;

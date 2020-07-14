@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginatorComponent } from './paginator.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Router } from '@angular/router';
 
 describe('PaginatorComponent', () => {
   let component: PaginatorComponent;
@@ -8,7 +10,9 @@ describe('PaginatorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PaginatorComponent ]
+      declarations: [ PaginatorComponent ],
+      imports: [HttpClientTestingModule],
+      providers: [Router]
     })
     .compileComponents();
   }));
@@ -17,9 +21,5 @@ describe('PaginatorComponent', () => {
     fixture = TestBed.createComponent(PaginatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

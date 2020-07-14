@@ -1,18 +1,22 @@
 <div class='d-flex news-detail-row'>
-    <div class="d-flex news-detail-row--comments-count"><span>{{rowData.num_comments}} </span></div>
-    <div class="d-flex news-detail-row--votes"><span>{{rowData.points}}</span></div> 
+    <div *ngIf="rowData" class="d-flex news-detail-row--comments-count"><span class="fw-bold">{{rowData.num_comments}} </span></div>
+    <div *ngIf="rowData" class="d-flex news-detail-row--votes"><span class="fw-bold">{{rowData.points}}</span></div> 
     <div class="d-flex news-detail-row--upvote">
-        <button (click)="performUpdate('upvote')">^</button>
+        <a title="upvote news" id="upvote-news" class="c-pointer" (click)="performUpdate('upvote')"><img style="opacity: 0.3;" src="assets/caret-up.png" alt=""></a>
     </div>
     <div class="d-flex news-detail-row--details">
-        <span>{{rowData.title}}&nbsp;</span>
-        <span>&nbsp;({{modifiedURL}})&nbsp;</span>
-        <span>&nbsp;by&nbsp;</span>
-        <span>&nbsp;{{rowData.author}}&nbsp;</span>
-        <span *ngIf = 'newsCreatedAt.days > 365 && newsCreatedAt.months > 12'>&nbsp;{{ newsCreatedAt.years }}&nbsp;years&nbsp;</span>
-        <span *ngIf = 'newsCreatedAt.days > 365 && newsCreatedAt.months <= 12'>&nbsp;{{ newsCreatedAt.months }}&nbsp;months&nbsp;</span>
-        <span *ngIf = 'newsCreatedAt.days <= 365 && newsCreatedAt.months <= 1'>&nbsp;{{ newsCreatedAt.days }}&nbsp;days&nbsp;</span>
-        <span>&nbsp;ago&nbsp;</span>
-        <button (click)="performUpdate('hide')">[hide]</button>
+        <span class="fs-l fw-bold">{{rowData.title}}&nbsp;</span>
+        <span>
+            <span>&nbsp;({{modifiedURL}})&nbsp;</span>
+            <span>&nbsp;by&nbsp;</span>
+            <span class="fw-bold">&nbsp;{{rowData.author}}&nbsp;</span>
+        </span>
+        <span>
+            <span *ngIf = 'rowData && newsCreatedAt.days > 365 && newsCreatedAt.months > 12'>&nbsp;{{ newsCreatedAt.years }}&nbsp;years&nbsp;</span>
+            <span *ngIf = 'rowData && newsCreatedAt.days > 365 && newsCreatedAt.months <= 12'>&nbsp;{{ newsCreatedAt.months }}&nbsp;months&nbsp;</span>
+            <span *ngIf = 'rowData && newsCreatedAt.days <= 365 && newsCreatedAt.months <= 1'>&nbsp;{{ newsCreatedAt.days }}&nbsp;days&nbsp;</span>
+            <span>&nbsp;ago&nbsp;</span>
+            <span>[&nbsp;<a id="hide-news" class="c-pointer fw-bold" (click)="performUpdate('hide')">hide</a>&nbsp;]</span>
+        </span>
     </div>
 </div>

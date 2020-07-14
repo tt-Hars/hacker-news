@@ -20,16 +20,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'hacker-news-clone'`, () => {
+  it(`should have correct loading data`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('hacker-news-clone');
+    expect(app.LoadingTable).toEqual('Loading data...');
+    expect(app.LoadingChart).toEqual('Loading timeline...');
   });
 
-  it('should render title', () => {
+  it('should render table and chart', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('hacker-news-clone app is running!');
+    expect(compiled.children[0]).toBeTruthy();
   });
 });

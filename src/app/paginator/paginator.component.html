@@ -1,1 +1,11 @@
-<button class="mx-2 my-2" [disabled]='pageNo === 0' (click)="changePage('previous')">Previous</button> | <button class="mx-2 my-2" (click)="changePage('next')">Next</button>
+<button
+  title="previous page"
+  class="c-pointer pag-links fw-bold"
+  [disabled]="pageNo === 0"
+  (click)="changePage('previous')"
+>
+  Previous</button
+><span class="pag-links fw-bold">|</span
+><button title="next page" class="c-pointer pag-links fw-bold" (click)="changePage('next')">
+  Next
+</button>
