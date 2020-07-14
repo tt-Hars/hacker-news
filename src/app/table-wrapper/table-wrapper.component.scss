@@ -31,6 +31,13 @@
         }
 }
 
+.pag-buttons {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 @media (max-width: 768px){
     .news-detail-row{
         height: 100%;

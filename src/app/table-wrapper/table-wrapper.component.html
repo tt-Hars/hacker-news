@@ -10,6 +10,6 @@
             <app-row (emittedaction) = 'updateNews($event)' [rowData] = 'news'></app-row>
         </div>
     </ng-container>
-    <app-paginator [pageNo] = 'pageNo' (updatedPageNo) = 'updateData($event)'></app-paginator>
+    <app-paginator class="pag-buttons" [pageNo] = 'pageNo' (updatedPageNo) = 'updateData($event)'></app-paginator>
 </section>
 <app-timeline-chart #timelineChart *ngIf = 'newsList.length > 0' [newsList] = 'newsList'></app-timeline-chart>
