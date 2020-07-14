@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  getNewsUrl: 'https://hn.algolia.com/api/v1/search'
+  getNewsUrl: 'https://hn.algolia.com/api/v1/search_by_date'
 };
 
 /*

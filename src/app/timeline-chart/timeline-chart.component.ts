@@ -42,6 +42,7 @@ export class TimelineChartComponent implements OnInit, OnChanges {
         ]
       },
       options: {
+        animation: false,
         legend: {
           display: false,
         },
