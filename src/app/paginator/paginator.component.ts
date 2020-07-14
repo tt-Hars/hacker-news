@@ -12,9 +12,7 @@ export class PaginatorComponent implements OnInit {
   @Input() pageNo = 0;
   @Output() updatedPageNo = new EventEmitter<number>();
 
-  ngOnInit(): void {
-    console.log(this.pageNo);
-  }
+  ngOnInit(): void { }
 
   changePage( type = 'next') {
     type === 'next' ? this.pageNo++ : this.pageNo--;

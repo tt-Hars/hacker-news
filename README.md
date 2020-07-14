@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+************************************************************************************************
+Approach: 
+
+we have 4 components:
+table component, row component, timeline chart component and paginator component
+
+Data from API ----> table component ---->  row component and timeline component
+
+Upvote and hide events are emitted to parent(table component) to modify data and chart.
+Data gets preserved on page refresh, as it is maintained in browser storage.
+Updated data can be fetched using pagination buttons. 
+Chart is re-painted every time the data is changed(hide, upvote, navigation).
+Page is server side rendered and is PWA as well.
+
+Tech Stack:
+Angular 9, RxJS, SCSS, Angular Universal, PWA, GIT, Vercel
+
+************************************************************************************************

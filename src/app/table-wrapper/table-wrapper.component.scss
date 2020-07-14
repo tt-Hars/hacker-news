@@ -20,10 +20,11 @@ $color-primary: #ff6600;
 }
 
 .news-detail-row{
-    height: 50px;
+    height: auto;
     align-items: center;
     flex: 0 0 100%;
     max-width: 100%;
+    padding: 10px 0;
         &--comments-count, &--votes, &--upvote{
             flex: 0 0 7%;
             max-width: 7%;
@@ -32,7 +33,7 @@ $color-primary: #ff6600;
         }
         &--details{
             flex: 0 0 73%;
-            max-width: 73%;
+            max-width: 79%;
             align-items: center;
         }
 }
